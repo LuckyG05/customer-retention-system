@@ -80,8 +80,11 @@ Built and compared:
 - Logistic Regression (Baseline)
 - Random Forest (Improved Model)
 | Model | Accuracy | Recall (Churn) |
+
 |------|---------|---------------|
+
 | Logistic Regression | 82% | 58% |
+
 | Random Forest | 80% | 76% |
 
 
