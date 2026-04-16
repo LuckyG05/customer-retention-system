@@ -124,14 +124,3 @@ st.download_button(
     mime='text/csv',
 )
 st.dataframe(filtered_df)
-
-# Charts
-st.subheader("Distribution")
-
-col1, col2 = st.columns(2)
-
-with col1:
-    st.bar_chart(df["Risk"].value_counts())
-
-with col2:
-    st.bar_chart(df["Value"].value_counts())
