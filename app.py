@@ -39,7 +39,6 @@ filtered_df = df[
 # Key Metrics
 # ----------------------------
 st.subheader("Key Metrics")
-st.markdown("---")
 col1, col2, col3 = st.columns(3)
 
 col1.metric("Total Customers", len(df))
@@ -57,8 +56,6 @@ else:
     st.success("Customer churn is under control.")
 
 st.subheader("Key Insight")
-st.markdown("---")
-
 st.info("""
 High-value customers with high churn risk should be prioritized for retention strategies 
 such as discounts, personalized offers, and engagement campaigns.
@@ -68,7 +65,6 @@ such as discounts, personalized offers, and engagement campaigns.
 # Priority Customers
 # ----------------------------
 st.subheader("Priority Customers (High Value + High Risk)")
-st.markdown("---")
 priority_df = filtered_df[
     (filtered_df["Risk"] == "High Risk") &
     (filtered_df["Value"] == "High Value")
