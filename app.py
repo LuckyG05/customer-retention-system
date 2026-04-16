@@ -7,7 +7,7 @@ import pandas as pd
 st.set_page_config(page_title="Customer Retention System", layout="wide")
 
 st.title("Customer Retention Intelligence System")
-
+st.markdown("---")
 # ----------------------------
 # Load Data
 # ----------------------------
@@ -39,7 +39,7 @@ filtered_df = df[
 # Key Metrics
 # ----------------------------
 st.subheader("Key Metrics")
-
+st.markdown("---")
 col1, col2, col3 = st.columns(3)
 
 col1.metric("Total Customers", len(df))
@@ -51,9 +51,13 @@ col3.metric("High Value Customers", len(df[df["Value"] == "High Value"]))
 # ----------------------------
 high_risk_count = len(df[df["Risk"] == "High Risk"])
 
-st.warning(f"{high_risk_count} customers are at high risk of churn!")
+if high_risk_count > 500:
+    st.warning("High number of customers at risk! Immediate action required.")
+else:
+    st.success("Customer churn is under control.")
 
 st.subheader("Key Insight")
+st.markdown("---")
 
 st.info("""
 High-value customers with high churn risk should be prioritized for retention strategies 
@@ -64,10 +68,10 @@ such as discounts, personalized offers, and engagement campaigns.
 # Priority Customers
 # ----------------------------
 st.subheader("Priority Customers (High Value + High Risk)")
-
-priority_df = df[
-    (df["Risk"] == "High Risk") &
-    (df["Value"] == "High Value")
+st.markdown("---")
+priority_df = filtered_df[
+    (filtered_df["Risk"] == "High Risk") &
+    (filtered_df["Value"] == "High Value")
 ]
 
 st.write(f"Total Priority Customers: {len(priority_df)}")
@@ -93,6 +97,7 @@ Suggested strategies:
 # Filtered Data
 # ----------------------------
 st.subheader("Filtered Customer Data")
+st.markdown("---")
 
 st.dataframe(filtered_df)
 
@@ -100,16 +105,17 @@ st.dataframe(filtered_df)
 # Charts
 # ----------------------------
 st.subheader("Customer Distribution")
+st.markdown("---")
 
 col1, col2 = st.columns(2)
 
 with col1:
     st.write("Risk Distribution")
-    st.bar_chart(df["Risk"].value_counts())
+    st.bar_chart(filtered_df["Risk"].value_counts())
 
 with col2:
     st.write("Value Distribution")
-    st.bar_chart(df["Value"].value_counts())
+    st.bar_chart(filtered_df["Value"].value_counts())
 
 # ----------------------------
 # Download Button
