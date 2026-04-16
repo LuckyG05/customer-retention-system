@@ -24,8 +24,8 @@ This project aims to:
 ## Solution Approach
 
 The system combines:
-- Data Analysis (EDA)
-- Customer Segmentation (RFM)
+- Exploratory Data Analysis (EDA)
+- RFM-based Customer Segmentation (RFM)
 - Machine Learning (Churn Prediction)
 - Business Strategy Engine
 - Interactive Dashboard (Streamlit)
@@ -79,6 +79,11 @@ Segments identified:
 Built and compared:
 - Logistic Regression (Baseline)
 - Random Forest (Improved Model)
+| Model | Accuracy | Recall (Churn) |
+|------|---------|---------------|
+| Logistic Regression | 82% | 58% |
+| Random Forest | 80% | 76% |
+
 
 **Results:**
 - Accuracy: ~80%
@@ -99,6 +104,23 @@ Example Actions:
 
 ---
 
+## Key Insights
+
+- Customers with **high monthly charges** are more likely to churn  
+- **Fiber optic users** show higher churn risk  
+- Customers with **low tenure** are more likely to leave  
+
+---
+
+## Business Impact
+
+- Identifies high-value customers at risk  
+- Helps prioritize retention strategies  
+- Reduces revenue loss  
+- Enables data-driven decision making  
+
+---
+
 ### 6️⃣ Interactive Dashboard
 
 Built using Streamlit:
@@ -109,11 +131,10 @@ Built using Streamlit:
 
 ---
 
-## Sample Output
+## Dashboard Preview
 
-- Identifies high-value customers at risk of churn
-- Provides actionable insights for retention
-- Supports business decision-making
+<img width="1907" height="938" alt="Screenshot 2026-04-16 213050" src="https://github.com/user-attachments/assets/af25c15a-4f2a-4042-bf08-97261a8fb24e" />
+
 
 ---
 
