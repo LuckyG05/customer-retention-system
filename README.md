@@ -76,7 +76,7 @@ Built and compared:
 - Logistic Regression (Baseline)
 - Random Forest (Improved Model)
 
-📈 **Results:**
+**Results:**
 - Accuracy: ~80%
 - Recall improved from **58% → 76%**
 
@@ -116,7 +116,7 @@ Built using Streamlit:
 ## How to Run Locally
 
 ```bash
-git clone https://github.com/your-username/customer-retention-system.git
+git clone https://github.com/LuckyG05/customer-retention-system.git
 cd customer-retention-system
 pip install -r requirements.txt
 streamlit run app.py
