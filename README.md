@@ -1,5 +1,9 @@
 # Customer Retention Intelligence System
 
+![Python](https://img.shields.io/badge/Python-3.9-blue)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Yes-green)
+![Deployment](https://img.shields.io/badge/Deployed-Streamlit-red)
+
 An end-to-end data science project that analyzes customer behavior, predicts churn, and recommends targeted retention strategies using machine learning and business-driven insights.
 
 **Live App:** [https://customer-retention-system-tft6vwyh7cirfzhiaadzfj.streamlit.app/](https://customer-retention-system-tft6vwyh7cirfzhiaadzfj.streamlit.app/)
