@@ -48,17 +48,45 @@ col3.metric("High Value Customers", len(df[df["Value"] == "High Value"]))
 # ----------------------------
 # Alerts & Insights
 # ----------------------------
-high_risk_count = len(df[df["Risk"] == "High Risk"])
+# ----------------------------
+# Alerts & Insights
+# ----------------------------
+high_risk = len(filtered_df[filtered_df["Risk"] == "High Risk"])
+total = len(filtered_df)
 
-if high_risk_count > 500:
-    st.warning("High number of customers at risk! Immediate action required.")
+# Safety check
+if total == 0:
+    st.warning("No data available for selected filters.")
 else:
-    st.success("Customer churn is under control.")
+    churn_rate = high_risk / total
+
+    # Alert 1 (count-based)
+    if high_risk > 500:
+        st.warning("High number of customers at risk! Immediate action required.")
+    else:
+        st.success("Customer churn is under control.")
+
+    # Alert 2 (percentage-based)
+    if churn_rate > 0.3:
+        st.error("High churn risk detected! Immediate retention strategy needed.")
+    else:
+        st.success("Churn level is manageable.")
+        
+    st.write(f"**High Risk Customers:** {high_risk}")
+    st.write(f"**Churn Rate:** {churn_rate:.2%}")
 
 st.subheader("Key Insight")
-st.info("""
-High-value customers with high churn risk should be prioritized for retention strategies 
-such as discounts, personalized offers, and engagement campaigns.
+if total == 0:
+    st.info("No insights available.")
+elif churn_rate > 0.3:
+    st.error("""
+A significant portion of customers are at high risk of churn.
+Focus on retention strategies like discounts and engagement campaigns.
+""")
+else:
+    st.success("""
+Customer base is relatively stable.
+Focus on maintaining engagement and loyalty programs.
 """)
 
 # ----------------------------
@@ -107,7 +135,8 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.write("Risk Distribution")
-    st.bar_chart(filtered_df["Risk"].value_counts())
+    risk_counts = filtered_df["Risk"].value_counts(normalize=True) * 100
+    st.bar_chart(risk_counts)
 
 with col2:
     st.write("Value Distribution")
