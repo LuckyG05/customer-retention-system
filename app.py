@@ -53,27 +53,23 @@ col3.metric("High Value Customers", len(df[df["Value"] == "High Value"]))
 # ----------------------------
 high_risk = len(filtered_df[filtered_df["Risk"] == "High Risk"])
 total = len(filtered_df)
-
-# Safety check
-if total == 0:
-    st.warning("No data available for selected filters.")
-else:
+if total > 0:
     churn_rate = high_risk / total
 
-    # Alert 1 (count-based)
-    if high_risk > 500:
-        st.warning("High number of customers at risk! Immediate action required.")
+    # Alert based on percentage
+    if churn_rate > 0.4:
+        st.error("Critical Alert: Very high churn risk! Immediate action required.")
+    elif churn_rate > 0.25:
+        st.warning("Warning: Moderate churn risk. Focus on retention strategies.")
     else:
         st.success("Customer churn is under control.")
 
-    # Alert 2 (percentage-based)
-    if churn_rate > 0.3:
-        st.error("High churn risk detected! Immediate retention strategy needed.")
-    else:
-        st.success("Churn level is manageable.")
-        
+    # Show metrics
     st.write(f"**High Risk Customers:** {high_risk}")
     st.write(f"**Churn Rate:** {churn_rate:.2%}")
+
+else:
+    st.info("No data available for selected filters.")
 
 st.subheader("Key Insight")
 if total == 0:
