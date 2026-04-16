@@ -128,7 +128,8 @@ Built using Streamlit:
 
 ## Dashboard Preview
 
-<img width="1907" height="938" alt="Screenshot 2026-04-16 213050" src="https://github.com/user-attachments/assets/af25c15a-4f2a-4042-bf08-97261a8fb24e" />
+<img width="1917" height="952" alt="image" src="https://github.com/user-attachments/assets/a0174eb9-fd06-4699-bb08-7568ea092bed" />
+
 
 
 ---
